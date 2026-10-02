@@ -1,0 +1,89 @@
+/* ========================================================
+   ร้านจ๊าบบาร์ (JAAB BAR) - ICE REDEEM APP STYLESHEET
+   Mobile First Responsive Styling & Visual Effects
+   ======================================================== */
+
+/* Root & Smooth Scrolling */
+html {
+  -webkit-tap-highlight-color: transparent;
+  scroll-behavior: smooth;
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+}
+
+body {
+  touch-action: manipulation;
+}
+
+/* Ice Grid Background Overlay */
+.ice-grid-pattern {
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+/* Massive Display Typography for BIB Number */
+.font-display {
+  font-family: 'Chakra Petch', monospace, sans-serif;
+  letter-spacing: 0.05em;
+}
+
+/* Custom Scrollbar for History Drawer */
+#historyListContainer::-webkit-scrollbar {
+  width: 5px;
+}
+#historyListContainer::-webkit-scrollbar-track {
+  background: rgba(15, 23, 42, 0.5);
+  border-radius: 9999px;
+}
+#historyListContainer::-webkit-scrollbar-thumb {
+  background: rgba(56, 189, 248, 0.2);
+  border-radius: 9999px;
+}
+#historyListContainer::-webkit-scrollbar-thumb:hover {
+  background: rgba(56, 189, 248, 0.4);
+}
+
+/* Ticket Cutout Notch Styling */
+.ticket-card {
+  position: relative;
+  background-image: radial-gradient(circle at 100% 100%, transparent 8px, #0f172a 8px);
+}
+
+/* Prevent iOS Zoom on Input Focus */
+@media screen and (max-width: 768px) {
+  input[type="text"],
+  input[type="number"] {
+    font-size: 24px !important;
+  }
+}
+
+/* Glow Keyframes */
+@keyframes iceGlow {
+  0%, 100% {
+    box-shadow: 0 0 25px -5px rgba(6, 182, 212, 0.4), 0 0 10px -2px rgba(6, 182, 212, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 35px 2px rgba(6, 182, 212, 0.6), 0 0 15px 1px rgba(56, 189, 248, 0.4);
+  }
+}
+
+.ticket-card {
+  animation: iceGlow 4s ease-in-out infinite;
+}
+
+/* Toast Animation */
+@keyframes slideDownFade {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px) scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.toast-enter {
+  animation: slideDownFade 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
